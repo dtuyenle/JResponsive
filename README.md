@@ -94,4 +94,4 @@ $('#grid').JResponsive({
 </pre>
 
 
-<h4><strong>Go to the <a href=""> main website</a> to see how it works and more information, specially check out the interactive example</strong></h4>
+<h4><strong>Go to the <a href="www.jresponsive.is-great.net"> main website</a> to see how it works and more information, specially check out the interactive example</strong></h4>
