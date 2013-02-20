@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>JResponsive Example</title>
+	<style>
+	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+		border: 0 none;
+		margin: 0;
+		padding: 0;
+		vertical-align: baseline;
+		font-family: 'Helvetica Neue',Arial,sans-serif;
+	}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		background: none repeat scroll 0 0 #C1DAD6;
+		color: #FFFFFF;
+		font-family: 'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Arial,sans-serif;
+		font-size: 13px;
+		width:100%;
+		height:100%;
+		line-height: 1.7em;
+	}
+	h1, h2, h3, p, ul, ol, pre, dl {
+		margin-bottom: 1em;
+	}
+	h1, h2, h3 {
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 32px;
+		line-height: 1.1em;
+	}
+	h2 {
+		font-size: 24px;
+		line-height: 1.1em;
+	}
+	ul, ol {
+		margin-left: 1.5em;
+	}
+	a, a code {
+		color: #FFBB44;
+		text-decoration: none;
+	}
+	a:hover, a:hover code {
+		color: #44BBFF;
+	}
+	a:active, a:active code {
+		background: none repeat scroll 0 0 black;
+		color: #11FFBB;
+	}	
+	#example {
+		bottom: 0;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;		
+		top: 5px;
+		position:relative;
+		margin:0 auto;
+		width: 60%;	
+	}
+	.item{
+		position:absolute;	
+	}
+	.element {
+		background: none repeat scroll 0 0 #888888;
+		border-top-right-radius: 1.2em;
+		color: #222222;
+		float: left;
+		height: 98%;	
+		width: 98%;
+	}	
+	.element * {
+		margin: 0;
+		position: absolute;
+	}
+	.element .number {
+		color: rgba(0, 0, 0, 0.5);
+		font-size: 2.25em;
+		font-weight: bold;
+		right: 0.5em;
+		top: 0.5em;
+	}	
+	.element .symbol {
+		color: #FFFFFF;
+		font-size: 7.8em;
+		left: 0.2em;
+		line-height: 1em;
+		top: 0.4em;
+	}
+	.element .name {
+		bottom: 1.7em;
+		font-size: 1.1em;
+		left: 0.5em;
+	}
+	.element .weight {
+		bottom: 0.5em;
+		font-size: 0.9em;
+		left: 0.5em;
+	}
+	.element:hover {
+		cursor: pointer;
+	}
+	.element:hover h3{
+		text-shadow: 0 0 10px white, 0 0 10px white;
+	}
+	.element:hover h2 {
+		color: white;
+	}
+	.element.nonmetal {
+		background: none repeat scroll 0 0 #62C2CC;
+	}
+	.element.noble-gas {
+		background: none repeat scroll 0 0 #FF717E;
+	}
+	.element.alkali {
+		background: none repeat scroll 0 0 #E86850;
+	}
+	.element.alkaline-earth {
+		background: none repeat scroll 0 0 #F68B1F;
+	}
+	.element.metalloid {
+		background: none repeat scroll 0 0 #1F7872;
+	}
+	.element.metal {
+		background: none repeat scroll 0 0 #666666;
+	}
+	#button {
+		background-color: #666666;
+		border-radius: 8px 8px 8px 8px;
+		color: #FFFFFF;
+		padding: 6px;
+		position: relative;
+		z-index: 99999 !important;
+		top:5px;
+	}
+	#button:hover {
+		background-color: #000000;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="jresponsive.js"></script> 
+	<script>	
+		var content = [];		
+		content[0] = '<div class="element nonmetal"><p class="number">1</p><h3 class="symbol">H</h3><h2 class="name">Hydrogen</h2><p class="weight">1.00794</p></div>';
+		content[1] = '<div class="element noble-gas"><p class="number">2</p><h3 class="symbol">He</h3><h2 class="name">Helium</h2><p class="weight">4.002602</p></div>';
+		content[2] = '<div class="element alkali"><p class="number">3</p><h3 class="symbol">Li</h3><h2 class="name">Lithium</h2><p class="weight">6.941</p></div>';
+		content[3] = '<div class="element alkaline-earth"><p class="number">4</p><h3 class="symbol">Be</h3><h2 class="name">Beryllium</h2><p class="weight">9.012182</p></div>';
+		content[4] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[5] = '<div class="element metal"><p class="number">49</p><h3 class="symbol">In</h3><h2 class="name">Indium</h2><p class="weight">114.818</p></div>';
+		content[6] = '<div class="element noble-gas"><p class="number">2</p><h3 class="symbol">He</h3><h2 class="name">Helium</h2><p class="weight">4.002602</p></div>';
+		content[7] = '<div class="element alkali"><p class="number">3</p><h3 class="symbol">Li</h3><h2 class="name">Lithium</h2><p class="weight">6.941</p></div>';
+		content[8] = '<div class="element alkaline-earth"><p class="number">4</p><h3 class="symbol">Be</h3><h2 class="name">Beryllium</h2><p class="weight">9.012182</p></div>';
+		content[9] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[10] = '<div class="element nonmetal"><p class="number">1</p><h3 class="symbol">H</h3><h2 class="name">Hydrogen</h2><p class="weight">1.00794</p></div>';
+		content[11] = '<div class="element noble-gas"><p class="number">2</p><h3 class="symbol">He</h3><h2 class="name">Helium</h2><p class="weight">4.002602</p></div>';
+		content[12] = '<div class="element alkali"><p class="number">3</p><h3 class="symbol">Li</h3><h2 class="name">Lithium</h2><p class="weight">6.941</p></div>';
+		content[13] = '<div class="element alkaline-earth"><p class="number">4</p><h3 class="symbol">Be</h3><h2 class="name">Beryllium</h2><p class="weight">9.012182</p></div>';
+		content[14] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[15] = '<div class="element metal"><p class="number">49</p><h3 class="symbol">In</h3><h2 class="name">Indium</h2><p class="weight">114.818</p></div>';
+		content[16] = '<div class="element noble-gas"><p class="number">2</p><h3 class="symbol">He</h3><h2 class="name">Helium</h2><p class="weight">4.002602</p></div>';
+		content[17] = '<div class="element alkali"><p class="number">3</p><h3 class="symbol">Li</h3><h2 class="name">Lithium</h2><p class="weight">6.941</p></div>';
+		content[18] = '<div class="element alkaline-earth"><p class="number">4</p><h3 class="symbol">Be</h3><h2 class="name">Beryllium</h2><p class="weight">9.012182</p></div>';
+		content[19] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[20] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[21] = '<div class="element metal"><p class="number">49</p><h3 class="symbol">In</h3><h2 class="name">Indium</h2><p class="weight">114.818</p></div>';
+		content[22] = '<div class="element noble-gas"><p class="number">2</p><h3 class="symbol">He</h3><h2 class="name">Helium</h2><p class="weight">4.002602</p></div>';
+		content[23] = '<div class="element alkali"><p class="number">3</p><h3 class="symbol">Li</h3><h2 class="name">Lithium</h2><p class="weight">6.941</p></div>';
+		content[24] = '<div class="element alkaline-earth"><p class="number">4</p><h3 class="symbol">Be</h3><h2 class="name">Beryllium</h2><p class="weight">9.012182</p></div>';
+		content[25] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+	$(function(){
+		$('#example').jresponsive({
+			min_size: 100,
+			max_size: 250,
+			height:	0,
+			class_name: 'item',
+			content_array: content,
+			transformation: 'animation',
+		});
+	});
+	
+	function addmore(){
+		content[26] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[27] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		content[28] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
+		jresponsive.add(content);	
+	}	
+	</script>
+</head>
+<body>	
+<a id="button" onClick="addmore()">Click here to add more elements into the container</a>
+<div id="example">
+	
+</div>	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
