@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 	<title>JResponsive Example</title>
 	<style>
 	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
@@ -174,13 +174,16 @@
 		content[25] = '<div class="element metalloid"><p class="number">5</p><h3 class="symbol">B</h3><h2 class="name">Boron</h2><p class="weight">10.811</p></div>';
 	$(function(){
 		$('#example').jresponsive({
-			min_size: 100,
-			max_size: 250,
-			height:	0,
+			min_size: 50,
+			max_size: 200,
+			hspace: 50,
+			vspace: 10,
+			height:	200,
 			class_name: 'item',
 			content_array: content,
 			transformation: 'animation',
 		});
+		console.log($('#example').width());
 	});
 	
 	function addmore(){
@@ -193,6 +196,7 @@
 </head>
 <body>	
 <a id="button" onClick="addmore()">Click here to add more elements into the container</a>
+<h1 align="center" style="margin-top:15px;">Resize to see how JResponsive works</h1>
 <div id="example">
 	
 </div>	
