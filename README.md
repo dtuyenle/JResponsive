@@ -75,6 +75,20 @@ $('#grid').JResponsive({
       height: 200,
 });
 </pre>
+<h2>hspace</h2>
+<p>Horizontal gap between elements</p>
+<pre>
+$('#grid').JResponsive({
+      hspace: 40,
+});
+</pre>
+<h2>vspace</h2>
+<p>Vertical gap between elements</p>
+<pre>
+$('#grid').JResponsive({
+      vspace: 40,
+});
+</pre>
 <h2>item-name</h2>
 <p>The class name of each of the element inside the container div. This will give users total control over the design of the layout. You can use class: item-name: '.item' or id item-name: '#item'</p>
 <pre>
