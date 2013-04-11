@@ -23,6 +23,8 @@ A simple jQuery plugin that allows you to add a dynamically-resized layout to an
   <a>min_size</a>: 100,
   <a>max_size</a>: 250,
   <a>height</a>:250,
+  <a>hspace</a>:10,
+  <a>vspace</a>:10,
   <a>class_name</a>: 'item',
   <a>content_array</a>: content
 });</pre>
