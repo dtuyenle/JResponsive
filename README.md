@@ -1,3 +1,12 @@
+<h3><em>Update: JResponsive now supports callback function as below</em></h3>
+<pre style="color:#62C2CC">
+$("div").jresponsive({
+  .......
+},callback);
+function callback(){
+  ......
+}
+</pre>
 <h1><strong>Introduction notes</strong></h1>
 JResponsive will organize your content in an efficient, dynamic and responsive layout. It can be applied to a container element and it will arrange its children in a layout that makes optimal use of screen space, by "packing" them in tightly. One of the very famous website that using this type of layout is <a href="http://www.pulse.me">Pulse.</a>
 <h1><strong>Simplicity is the ultimate sophistication</strong></h1>
