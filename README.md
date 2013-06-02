@@ -1,4 +1,5 @@
-<h3><em>Update: JResponsive now supports callback function as below</em></h3>
+<h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
+<h3><em>JResponsive now supports callback function as below</em></h3>
 <pre style="color:#62C2CC">
 $("div").jresponsive({
   .......
