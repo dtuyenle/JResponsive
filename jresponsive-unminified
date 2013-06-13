@@ -97,6 +97,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 } else {
                     r.number = e + 1
                 }
+                if(r.number > r.content_array.length) {
+                    r.number = r.content_array.length;
+                }
                 r.getWidth()
             },
             getWidth: function () {
@@ -186,7 +189,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 for (j = 0; j < s.row; j++) {
                     count = 1;
                     for (i = 0; i < s.number; i++) {
-                        if (count < s.length || s.check == 0) {
+                        if (count <= s.length || s.check == 0) {
                             if (i == 0) {
                                 top_div = s.top * j;
                                 if (j == 0) {
