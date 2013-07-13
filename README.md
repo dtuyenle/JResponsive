@@ -1,4 +1,5 @@
 <h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
+<h3><em>JResponsive now will resize images inside the container automatically based on the initial propotion of the container width and the image width. </em></h3>
 <h3><em>JResponsive now supports callback function as below</em></h3>
 <pre style="color:#62C2CC">
 $("div").jresponsive({
