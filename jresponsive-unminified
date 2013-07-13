@@ -155,6 +155,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             arrayD: [],
             old_arrayD: [],
             add: 0,
+    		propotion_width: 0,
             innit: function (e, t, n, r, i, o, u, a, f, l, c) {
                 s.width = e;
                 s.height = t;
@@ -167,7 +168,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 s.content_array = l;
                 s.class_name = f;
                 s.transformation = c;
-                s.getAdd()
+                s.getAdd();
+				s.propotion_width = e/$('.'+ f + ' img').width();
+				s.propotion_height = e/$('.'+ f + ' img').height();
             },
             getAdd: function () {
                 if (s.old_arrayD.length > 0) {
@@ -274,15 +277,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     r.callback()
                 }
             },
+			resizeImages: function(g) {
+				e("#" + g + ' img').animate({
+                    width: s.arrayD[g].width/s.propotion_width
+                }, 400)
+			},
             animateDivs: function () {
                 if (s.transformation == "animation") {
+					console.log(s.arrayD[0]);
+					console.log(s.old_arrayD[0]);
                     for (g = 0; g < s.old_arrayD.length; g++) {
                         e("#" + g).animate({
                             width: s.arrayD[g].width,
                             height: s.arrayD[g].height,
                             left: s.arrayD[g].left,
                             top: s.arrayD[g].top
-                        }, 400)
+                        }, 400);
+						s.resizeImages(g);
                     }
                 } else if (s.transformation == "fade") {
                     for (g = 0; g < s.old_arrayD.length; g++) {
@@ -293,6 +304,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             top: s.arrayD[g].top,
                             opacity: .1
                         }, 500);
+						s.resizeImages(g);
                         e("#" + g).animate({
                             opacity: 1
                         }, 500)
