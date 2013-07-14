@@ -13,12 +13,12 @@
 });</pre>
 <a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
 <pre>
-'< div id=" container_id" >'
-	'<div class=" class_name"></ div >'
-	'<div class=" class_name"></ div >'
-	'<div class=" class_name"></ div >'
-'	.......'
-'</ div>'
+I would appreciate if someone could tell me how to escape html inside pre tag, GitHub making me frustrated.
+
+div id ="container_id"
+	div class="class_name"
+	div class = "class_name"
+	........
 </pre>
 
 
