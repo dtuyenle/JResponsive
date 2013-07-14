@@ -33,7 +33,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             };
             e = window.console = new t
         })();
-    e.fn.jresponsive = function (t, n) {
+    e.fn.jresponsive = function (t, n) {		
         var r = {
             actual_width: 0,
             actual_height: 0,
@@ -79,7 +79,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 r.content_array = l;
                 r.container_name = a;
                 r.class_name = f;
-                r.getScreensize()
+                r.getScreensize();
+				//alert('what' + $('#0 img').width());
             },
             getScreensize: function () {
                 var t = e(r.container_name).width();
@@ -155,9 +156,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             arrayD: [],
             old_arrayD: [],
             add: 0,
-    		propotion_width: 0,
+			propotion: 0,
+			propotion_check: 0,
             innit: function (e, t, n, r, i, o, u, a, f, l, c) {
-                s.width = e;
+                s.width = e;			
                 s.height = t;
                 s.left = n;
                 s.top = r;
@@ -168,9 +170,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 s.content_array = l;
                 s.class_name = f;
                 s.transformation = c;
-                s.getAdd();
-				s.propotion_width = e/$('.'+ f + ' img').width();
-				s.propotion_height = e/$('.'+ f + ' img').height();
+                s.getAdd();				
             },
             getAdd: function () {
                 if (s.old_arrayD.length > 0) {
@@ -251,7 +251,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 s.arrayD.splice(s.content_array.length, s.arrayD.length - s.content_array.length);
                 s.old_arrayD.splice(s.content_array.length, s.old_arrayD.length - s.content_array.length);
                 if (s.check == 0) {
-                    s.createDivs()
+                    s.createDivs();						
                 } else {
                     s.arrayD.splice(s.old_arrayD.length, s.arrayD.length - s.old_arrayD.length);
                     s.animateDivs()
@@ -264,28 +264,35 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                 var l = a + u + f;
                 e(s.container_name).append(l)
             },
-            createDivs: function (t) {
+            createDivs: function (t) {				
                 var n = s.add;
                 for (n; n < s.arrayD.length; n++) {
                     s.createDiv(n, s.arrayD[n].width, s.arrayD[n].height, s.arrayD[n].left, s.arrayD[n].top, s.content_array[n])
-                }
+                }				
                 s.check = s.check + 1;
                 e("body").css("height", s.arrayD[s.arrayD.length - 1].top + s.arrayD[s.arrayD.length - 1].height);
                 e(s.container_name).css("height", s.arrayD[s.arrayD.length - 1].top + s.arrayD[s.arrayD.length - 1].height);
                 s.arrayD = [];
                 if (r.callback !== null) {
                     r.callback()
-                }
+                };				
             },
-			resizeImages: function(g) {
-				e("#" + g + ' img').animate({
-                    width: s.arrayD[g].width/s.propotion_width
-                }, 400)
+			resizeImages: function(g) {		
+				if(s.propotion != 0)
+				{			
+					e("#" + g + ' img').animate({
+						width: s.arrayD[g].width*s.propotion
+					}, 600)
+				}
 			},
-            animateDivs: function () {
+            animateDivs: function () {	
+				if(s.propotion_check === 0)
+				{			
+					var imgWidth = $('#0 img').width();
+					s.propotion = imgWidth/s.width;
+					s.propotion_check = 1;
+				}
                 if (s.transformation == "animation") {
-					console.log(s.arrayD[0]);
-					console.log(s.old_arrayD[0]);
                     for (g = 0; g < s.old_arrayD.length; g++) {
                         e("#" + g).animate({
                             width: s.arrayD[g].width,
@@ -309,7 +316,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                             opacity: 1
                         }, 500)
                     }
-                }
+                };
                 e("body").css("height", s.arrayD[s.arrayD.length - 1].top + s.arrayD[s.arrayD.length - 1].height);
                 e(this.container_name).css("height", s.arrayD[s.arrayD.length - 1].top + s.arrayD[s.arrayD.length - 1].height);
                 s.arrayD = [];
@@ -336,7 +343,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             class_name: "",
             content_array: "",
             add: "",
-            transformation: "animation"
+            transformation: "animation",
         }, t);
         var o = this;
         if (settings.add !== "") {
@@ -344,8 +351,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
         e("body").css("height", 1e4);
         var u = null;
-        r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.nav_name, "#" + e(o).attr("id"), settings.class_name, settings.content_array, settings.transformation, n);
-        e(window).bind("resize", function () {
+        r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.
+		nav_name, "#" + e(o).attr("id"), settings.class_name, settings.content_array, settings.transformation, n);
+        
+		e(window).bind("resize", function () {
             if (u != null) clearTimeout(u);
             u = setTimeout(function () {
                 r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.nav_name, "#" + e(o).attr("id"), settings.class_name, settings.content_array, settings.transformation, n)
