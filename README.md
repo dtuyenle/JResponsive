@@ -12,12 +12,14 @@
   <strike><a>content_array</a>: content</strike>
 });</pre>
 <a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
-<code><div id="container_id">
+<code>
+<div id="container_id">
 	<div class="class_name"></div>
 	<div class="class_name"></div>
 	<div class="class_name"></div>
 	.......
-</div></code>
+</div>
+</code>
 
 
 <h3><em><span>Create divs first inside the container then push them all into the array passed to JResponsive:</span></em></h3>
