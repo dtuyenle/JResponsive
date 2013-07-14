@@ -1,6 +1,6 @@
 <h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
 
-<h3><em>Create divs first inside the container then push them all into the array passed to JResponsive:</em></h3>
+<h3><em><span style="color:blue">Create divs first inside the container then push them all into the array passed to JResponsive:</span></em></h3>
 <pre style="color:#62C2CC">
 var array = [];
 array = $('#container .content').map(function(){
