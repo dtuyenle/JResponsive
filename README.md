@@ -154,6 +154,26 @@ $('#grid').JResponsive({
 		  content_array: content,
 });
 </pre>
+<p><em><span>If you don't want to create content_array manually. You can let Jresponsive take care of that for you by not defining content_array property.</span></em></p>
+<pre>$("#container_id").jresponsive({
+  <a>transormation</a>: 'animation', 
+  <a>min_size</a>: 100,
+  <a>max_size</a>: 250,
+  <a>height</a>:250,
+  <a>hspace</a>:10,
+  <a>vspace</a>:10,
+  <a>class_name</a>: 'item',
+  <strike><a>content_array</a>: content</strike>
+});</pre>
+<a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
+<pre>
+I would appreciate if someone could tell me how to escape html inside pre tag, GitHub making me frustrated.
+
+div id ="container_id"
+	div class="class_name"
+	div class = "class_name"
+	........
+</pre>
 
 
 <h4><strong>Go to the <a target"_blank" href="http://www.jresponsive.is-great.net"> main website</a> to see how it works and more information, specially check out the interactive example</strong></h4>
