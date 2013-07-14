@@ -13,10 +13,10 @@
 });</pre>
 <a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
 <code>
-< div id="container_id">
-	< div class="class_name"></ div>
-	< div class="class_name"></ div>
-	< div class="class_name"></ div>
+< div id=" container_id" >
+	< div class=" class_name"></ div >
+	< div class=" class_name"></ div >
+	< div class=" class_name"></ div >
 	.......
 </ div>
 </code>
