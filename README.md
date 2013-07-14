@@ -12,8 +12,7 @@
   <strike><a>content_array</a>: content</strike>
 });</pre>
 <a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
-<pre>
-<div id="container_id">
+<pre><div id="container_id">
 	<div class="class_name"></div>
 	<div class="class_name"></div>
 	<div class="class_name"></div>
