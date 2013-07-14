@@ -1,6 +1,21 @@
 <h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
+
+<h3><em>Create divs first inside the container then push them all into the array passed to JResponsive:</em></h3>
+<pre style="color:#62C2CC">
+var array = [];
+array = $('#container .content').map(function(){
+    return $(this).html();          
+});
+$('#container').empty();
+var length = array.length;
+for(var i = 0; i ' + array[i] + '';           
+};
+</pre>
+
+
+
 <h3><em>JResponsive now will resize images inside the container automatically based on the initial propotion of the container width and the image width. </em></h3>
-<h3><em>JResponsive now supports callback function as below</em></h3>
+<h4><em>JResponsive now supports callback function as below</em></h4>
 <pre style="color:#62C2CC">
 $("div").jresponsive({
   .......
