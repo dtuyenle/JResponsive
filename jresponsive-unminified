@@ -346,13 +346,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             transformation: "animation",
         }, t);
         var o = this;
+		var container_id = "#" + e(o).attr("id");
         if (settings.add !== "") {
             s.check = 0
         }
+		if(settings.content_array === "")
+		{
+			settings.content_array = $(container_id + ' .' + settings.class_name).map(function(){
+				return $(this).html();
+			});
+			 $(container_id).empty();
+		}
         e("body").css("height", 1e4);
         var u = null;
         r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.
-		nav_name, "#" + e(o).attr("id"), settings.class_name, settings.content_array, settings.transformation, n);
+		nav_name, container_id, settings.class_name, settings.content_array, settings.transformation, n);
         
 		e(window).bind("resize", function () {
             if (u != null) clearTimeout(u);
