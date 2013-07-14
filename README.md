@@ -1,6 +1,27 @@
 <h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
 
-<h3><em><span style="color:blue">Create divs first inside the container then push them all into the array passed to JResponsive:</span></em></h3>
+<h3><em><span>If you don't want to create content_array manually. You can let Jresponsive take care of that for you by not defining content_array property.</span></em></h3>
+<pre>$("#container_id").jresponsive({
+  <a>transormation</a>: 'animation', 
+  <a>min_size</a>: 100,
+  <a>max_size</a>: 250,
+  <a>height</a>:250,
+  <a>hspace</a>:10,
+  <a>vspace</a>:10,
+  <a>class_name</a>: 'item',
+  <strike><a>content_array</a>: content</strike>
+});</pre>
+<a>Note: Make sure when you struture your html from the beginning, follow the pattern:</a>
+<pre>
+<div id="container_id">
+	<div class="class_name"></div>
+	<div class="class_name"></div>
+	<div class="class_name"></div>
+	.......
+</div>
+</pre>
+
+<h3><em><span>Create divs first inside the container then push them all into the array passed to JResponsive:</span></em></h3>
 <pre style="color:#62C2CC">
 var array = [];
 array = $('#container .content').map(function(){
@@ -11,8 +32,6 @@ var length = array.length;
 for(var i = 0; i ' + array[i] + '';           
 };
 </pre>
-
-
 
 <h3><em>JResponsive now will resize images inside the container automatically based on the initial propotion of the container width and the image width. </em></h3>
 <h4><em>JResponsive now supports callback function as below</em></h4>
