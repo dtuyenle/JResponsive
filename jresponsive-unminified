@@ -257,10 +257,10 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                     s.animateDivs()
                 }
             },
-            createDiv: function (t, n, r, i, o, u) {
-                var a = '<div class="' + s.class_name + '"' + 'id="' + t + '" style="display: block; width: ' + n + "px; height: " + r + "px; left: " + i + "px; top: " + o + 'px;">';
+            createDiv: function (t, n, r, i, o, u) {			
+                var a = '<' + tagName + ' class="' + s.class_name + '"' + 'id="' + t + '" style="display: block; width: ' + n + "px; height: " + r + "px; left: " + i + "px; top: " + o + 'px;">';
                 var u = u;
-                var f = "</div>";
+                var f = "</" + tagName + ">";				
                 var l = a + u + f;
                 e(s.container_name).append(l)
             },
@@ -355,12 +355,14 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			settings.content_array = $(container_id + ' .' + settings.class_name).map(function(){
 				return $(this).html();
 			});
-			 $(container_id).empty();
+			
+			tagName = $(container_id + ' .' + settings.class_name)[0].tagName.toLowerCase();
+			
+			$(container_id).empty();
 		}
         e("body").css("height", 1e4);
         var u = null;
-        r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.
-		nav_name, container_id, settings.class_name, settings.content_array, settings.transformation, n);
+        r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.nav_name, container_id, settings.class_name, settings.content_array, settings.transformation, n);
         
 		e(window).bind("resize", function () {
             if (u != null) clearTimeout(u);
