@@ -360,6 +360,20 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 			
 			$(container_id).empty();
 		}
+		else
+		{
+			var containerTag = $(container_id)[0].tagName.toLowerCase();
+			console.log(containerTag);
+			if(containerTag === 'ul')
+			{
+				tagName = 'li';	
+			}				
+			else
+			{
+				tagName = 'div';
+			}
+			$(container_id).empty();
+		}
         e("body").css("height", 1e4);
         var u = null;
         r.innit(settings.min_size, settings.max_size, settings.height, settings.hspace, settings.vspace, settings.nav_name, container_id, settings.class_name, settings.content_array, settings.transformation, n);
