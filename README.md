@@ -102,18 +102,18 @@ $('#grid').JResponsive({
   		transformation: '',
 });
 </pre>
-<h2>min-size</h2>
-<p>This is the minimun width of each of the element that it is allowed to shrink, because when window width changed, it depends on how much it changes elements will change the width or change position to fit the container. min-size: 100</p>
+<h2>min_size</h2>
+<p>This is the minimun width of each of the element that it is allowed to shrink, because when window width changed, it depends on how much it changes elements will change the width or change position to fit the container. min_size: 100</p>
 <pre>
 $('#grid').JResponsive({
-      min-size: 100,
+      min_size: 100,
 });
 </pre>
-<h2>max-size</h2>
-<p>The maximun width of each of the element that it is allowed to reach. Based on this property, JResponsive will calculate how many elements will fit the container. max-size: 300</p>
+<h2>max_size</h2>
+<p>The maximun width of each of the element that it is allowed to reach. Based on this property, JResponsive will calculate how many elements will fit the container. max_size: 300</p>
 <pre>
 $('#grid').JResponsive({
-      max-size: 250,
+      max_size: 250,
 });
 </pre>
 <h2>height</h2>
@@ -137,11 +137,11 @@ $('#grid').JResponsive({
       vspace: 40,
 });
 </pre>
-<h2>item-name</h2>
-<p>The class name of each of the element inside the container div. This will give users total control over the design of the layout. You can use class: item-name: '.item' or id item-name: '#item'</p>
+<h2>item_name</h2>
+<p>The class name of each of the element inside the container div. This will give users total control over the design of the layout. You can use class: item_name: '.item' or id item_name: '#item'</p>
 <pre>
 $('#grid').JResponsive({
-      item-name: '.item',
+      item_name: '.item',
 });
 </pre>
 <h2>content_array</h2>
