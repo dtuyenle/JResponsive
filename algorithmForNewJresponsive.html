@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>JResponsive Example</title>
+	<style>
+	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+		border: 0 none;
+		margin: 0;
+		padding: 0;
+		vertical-align: baseline;
+		font-family: 'Helvetica Neue',Arial,sans-serif;
+	}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		background: none repeat scroll 0 0 #C1DAD6;
+		color: #FFFFFF;
+		font-family: 'Lucida Sans','Lucida Sans Regular','Lucida Grande','Lucida Sans Unicode',Arial,sans-serif;
+		font-size: 13px;
+		width:100%;
+		height:1000px;
+		line-height: 1.7em;
+	}
+	h1, h2, h3, p, ul, ol, pre, dl {
+		margin-bottom: 1em;
+	}
+	h1, h2, h3 {
+		font-weight: bold;
+	}
+	h1 {
+		font-size: 32px;
+		line-height: 1.1em;
+	}
+	h2 {
+		font-size: 24px;
+		line-height: 1.1em;
+	}
+	ul, ol {
+		margin-left: 1.5em;
+	}
+	a, a code {
+		color: #FFBB44;
+		text-decoration: none;
+	}
+	a:hover, a:hover code {
+		color: #44BBFF;
+	}
+	a:active, a:active code {
+		background: none repeat scroll 0 0 black;
+		color: #11FFBB;
+	}	
+	#example {
+		bottom: 0;
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: hidden;		
+		top: 5px;
+		position:relative;
+		margin:0 auto;
+		width: 70%;	
+	}
+	.item{
+		position:absolute;	
+	}
+	.element {
+		background: none repeat scroll 0 0 #888888;
+		border-top-right-radius: 1.2em;
+		color: #222222;
+		float: left;
+		height: 98%;	
+		width: 98%;
+	}	
+	.element * {
+		margin: 0;
+		position: absolute;
+	}
+	.element .number {
+		color: rgba(0, 0, 0, 0.5);
+		font-size: 2.25em;
+		font-weight: bold;
+		right: 0.5em;
+		top: 0.5em;
+	}	
+	.element .symbol {
+		color: #FFFFFF;
+		font-size: 7.8em;
+		left: 0.2em;
+		line-height: 1em;
+		top: 0.4em;
+	}
+	.element .name {
+		bottom: 1.7em;
+		font-size: 1.1em;
+		left: 0.5em;
+	}
+	.element .weight {
+		bottom: 0.5em;
+		font-size: 0.9em;
+		left: 0.5em;
+	}
+	.element:hover {
+		cursor: pointer;
+	}
+	.element:hover h3{
+		text-shadow: 0 0 10px white, 0 0 10px white;
+	}
+	.element:hover h2 {
+		color: white;
+	}
+	.element.nonmetal {
+		background: none repeat scroll 0 0 #62C2CC;
+	}
+	.element.noble-gas {
+		background: none repeat scroll 0 0 #FF717E;
+	}
+	.element.alkali {
+		background: none repeat scroll 0 0 #E86850;
+	}
+	.element.alkaline-earth {
+		background: none repeat scroll 0 0 #F68B1F;
+	}
+	.element.metalloid {
+		background: none repeat scroll 0 0 #1F7872;
+	}
+	.element.metal {
+		background: none repeat scroll 0 0 #666666;
+	}
+	#button {
+		background-color: #666666;
+		border-radius: 8px 8px 8px 8px;
+		color: #FFFFFF;
+		padding: 6px;
+		position: relative;
+		z-index: 99999 !important;
+		top:5px;
+	}
+	#button:hover {
+		background-color: #000000;
+		color: #FFFFFF;
+		cursor: pointer;
+	}
+	</style>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script> 
+
+</head>
+<body>	
+<a id="button" onClick="addmore()">Click here to add more elements into the container</a>
+<h1 align="center" style="margin-top:15px;">Resize to see how JResponsive works</h1>
+<div id="example">
+	<div id="0" class="item" style="display: block; width: 210px; height: 200px; left: 0px; top: 0px;">
+		<div class="element nonmetal">
+			<p class="number">1</p>
+			<h3 class="symbol">H</h3>
+			<h2 class="name">Hydrogen</h2>
+			<p class="weight">1.00794</p>
+		</div>
+	</div>
+	<div id="1" class="item" style="display: block; width: 200px; height: 200px; left: 219.333px; top: 0px;">
+		<div class="element noble-gas">
+			<p class="number">2</p>
+			<h3 class="symbol">He</h3>
+			<h2 class="name">Helium</h2>
+			<p class="weight">4.002602</p>
+		</div>
+	</div>
+	<div id="2" class="item" style="display: block; width: 200px; height: 250px; left: 438.667px; top: 0px;">
+		<div class="element alkali">
+			<p class="number">3</p>
+			<h3 class="symbol">Li</h3>
+			<h2 class="name">Lithium</h2>
+			<p class="weight">6.941</p>
+		</div>
+	</div>
+	<div id="3" class="item" style="display: block; width: 240px; height: 200px; left: 658px; top: 0px;">
+		<div class="element alkaline-earth">
+			<p class="number">4</p>
+			<h3 class="symbol">Be</h3>
+			<h2 class="name">Beryllium</h2>
+			<p class="weight">9.012182</p>
+		</div>
+	</div>
+	
+	<div id="4" class="item" style="display: block; width: 210px; height: 200px; left: 1096.67px; top: 0px;">
+		<div class="element metal">
+			<p class="number">49</p>
+			<h3 class="symbol">In</h3>
+			<h2 class="name">Indium</h2>
+			<p class="weight">114.818</p>
+		</div>
+	</div>
+	<div id="5" class="item" style="display: block; width: 150px; height: 210px; left: 0px; top: 250px;">
+		<div class="element noble-gas">
+			<p class="number">2</p>
+			<h3 class="symbol">He</h3>
+			<h2 class="name">Helium</h2>
+			<p class="weight">4.002602</p>
+		</div>
+	</div>
+	<div id="6" class="item" style="display: block; width: 200px; height: 300px; left: 219.333px; top: 250px;">
+		<div class="element alkali">
+			<p class="number">3</p>
+			<h3 class="symbol">Li</h3>
+			<h2 class="name">Lithium</h2>
+			<p class="weight">6.941</p>
+		</div>
+	</div>
+	<div id="7" class="item" style="display: block; width: 200px; height: 200px; left: 438.667px; top: 250px;">
+		<div class="element alkaline-earth">
+			<p class="number">4</p>
+			<h3 class="symbol">Be</h3>
+			<h2 class="name">Beryllium</h2>
+			<p class="weight">9.012182</p>
+		</div>
+	</div>
+	<div id="8" class="item" style="display: block; width: 200px; height: 200px; left: 658px; top: 250px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+	<div id="9" class="item" style="display: block; width: 200px; height: 200px; left: 877.333px; top: 250px;">
+		<div class="element nonmetal">
+			<p class="number">1</p>
+			<h3 class="symbol">H</h3>
+			<h2 class="name">Hydrogen</h2>
+			<p class="weight">1.00794</p>
+		</div>
+	</div>
+	<div id="10" class="item" style="display: block; width: 200px; height: 200px; left: 1096.67px; top: 250px;">
+		<div class="element noble-gas">
+			<p class="number">2</p>
+			<h3 class="symbol">He</h3>
+			<h2 class="name">Helium</h2>
+			<p class="weight">4.002602</p>
+		</div>
+	</div>
+	<div id="11" class="item" style="display: block; width: 200px; height: 200px; left: 0px; top: 500px;">
+		<div class="element alkali">
+			<p class="number">3</p>
+			<h3 class="symbol">Li</h3>
+			<h2 class="name">Lithium</h2>
+			<p class="weight">6.941</p>
+		</div>
+	</div>
+	<div id="12" class="item" style="display: block; width: 200px; height: 200px; left: 219.333px; top: 500px;">
+		<div class="element alkaline-earth">
+			<p class="number">4</p>
+			<h3 class="symbol">Be</h3>
+			<h2 class="name">Beryllium</h2>
+			<p class="weight">9.012182</p>
+		</div>
+	</div>
+	<div id="13" class="item" style="display: block; width: 230px; height: 200px; left: 438.667px; top: 500px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+	<div id="14" class="item" style="display: block; width: 250px; height: 200px; left: 658px; top: 500px;">
+		<div class="element metal">
+			<p class="number">49</p>
+			<h3 class="symbol">In</h3>
+			<h2 class="name">Indium</h2>
+			<p class="weight">114.818</p>
+		</div>
+	</div>
+	<div id="15" class="item" style="display: block; width: 250px; height: 200px; left: 877.333px; top: 500px;">
+		<div class="element noble-gas">
+			<p class="number">2</p>
+			<h3 class="symbol">He</h3>
+			<h2 class="name">Helium</h2>
+			<p class="weight">4.002602</p>
+		</div>
+	</div>
+	<div id="16" class="item" style="display: block; width: 250px; height: 200px; left: 1096.67px; top: 500px;">
+		<div class="element alkali">
+			<p class="number">3</p>
+			<h3 class="symbol">Li</h3>
+			<h2 class="name">Lithium</h2>
+			<p class="weight">6.941</p>
+		</div>
+	</div>
+	<div id="17" class="item" style="display: block; width: 100px; height: 200px; left: 0px; top: 750px;">
+		<div class="element alkaline-earth">
+			<p class="number">4</p>
+			<h3 class="symbol">Be</h3>
+			<h2 class="name">Beryllium</h2>
+			<p class="weight">9.012182</p>
+		</div>
+	</div>
+	<div id="18" class="item" style="display: block; width: 220px; height: 200px; left: 219.333px; top: 750px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+	<div id="19" class="item" style="display: block; width: 80px; height: 200px; left: 438.667px; top: 750px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+	<div id="20" class="item" style="display: block; width: 250px; height: 200px; left: 438.667px; top: 750px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+	<div id="20" class="item" style="display: block; width: 50px; height: 200px; left: 438.667px; top: 750px;">
+		<div class="element metalloid">
+			<p class="number">5</p>
+			<h3 class="symbol">B</h3>
+			<h2 class="name">Boron</h2>
+			<p class="weight">10.811</p>
+		</div>
+	</div>
+
+</div>	
+	<script>
+		
+	function buildLayoutObjects()
+	{
+		var array = [];
+		$('.item').each(function(){
+			array.push({id: $(this).attr('id'),width:parseInt($(this).css('width').replace('px', '')),height: parseInt($(this).css('height').replace('px', ''))});
+		});
+		return array;		
+	}
+		
+	function sumArray(array)
+	{
+		var length = array.length;
+		var sum = 0;
+		for(var i=0;i<length;i++)
+		{
+			sum = sum + array[i].width;
+		}
+		return sum
+	}
+	
+	
+	function recursive(cross, s, a) {
+		for( var i=s; i < keys.length; i++ ){
+			if( !cross ){
+				var b = a.slice(0);
+				b.push( {width:keys[i].width,id:keys[i].id} );
+				if(sumArray(b) == target)
+				{
+					console.log(b);
+					for(var j = 0; j<b.length;j++)
+					{
+						for(var g = 0; g<keys.length; g++)
+						{
+							if(keys[g].id == b[j].id) {
+								keys.splice(g,1);
+								//return false;
+							}
+						}
+					}
+					//set.push( b );
+					//
+					ini=0;
+					return false;
+				}
+				
+			}
+			else{ 
+				a.push({width:keys[i].width,id:keys[i].id}); 
+				recursive(cross-1, i+1, a); 
+				a.splice(-1, 1);
+			}
+		}		
+	}
+
+	
+	var keys = buildLayoutObjects();
+	var target = 400;
+	var set = [];
+
+	for(var ini=0; ini<keys.length;ini++)
+	{
+		recursive(ini, 0, set);
+	};
+
+
+	console.log(keys);
+	
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
