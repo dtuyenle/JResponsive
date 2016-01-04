@@ -175,5 +175,20 @@ div id ="container_id"
 	........
 </pre>
 
+<p>Make sure you specify css for main container and each item</p>
+<pre>
+#container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.item {
+  position:absolute;
+}
+</pre>
 
 <h4><strong>Go to the <a target"_blank" href="http://www.jresponsive.is-great.net"> main website</a> to see how it works and more information, specially check out the interactive example</strong></h4>
