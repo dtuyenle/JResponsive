@@ -1,4 +1,6 @@
 <h3><em>Update: I am currently improving JResponsive so that it can support different width and height for different divs</em></h3>
+<h3>Auto add inline css for container and item</h3>
+<h3>Make jresponsive usable for multiple containers</h3>
 
 <h3><em><span>If you don't want to create content_array manually. You can let Jresponsive take care of that for you by not defining content_array property.</span></em></h3>
 <pre>$("#container_id").jresponsive({
